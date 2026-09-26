@@ -1,0 +1,214 @@
+/* base styleeee */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #1a1e24;
+    --bg-navy: #112743;
+    --bg-light: #e0d8d0;
+    --text-dark: #1a1e24;
+    --text-light: #e8e1d8;
+    --text-muted: #bdb5ad;
+    --gold: #cda26d;
+    --gold-light: #e1bd8b;
+    --font-serif: "Times New Roman", Georgia, serif;
+    --font-sans: Arial, sans-serif;
+}
+
+  body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      font-family: var(--font-serif);
+      line-height: 1.6;
+  }
+
+/* main profilee */
+.label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.section {
+    padding: 5rem 8%;
+}
+
+.light-theme {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.dark-theme {
+    background: var(--bg-navy);
+    color: var(--text-light);
+}
+
+.section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.section-title span {
+    font-family: var(--font-sans);
+    color: var(--gold);
+    font-size: 0.8rem;
+}
+
+.section-title h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: normal;
+}
+
+/* hero section */
+
+.hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    min-height: 100vh;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.85);
+}
+
+.hero-text {
+    padding: 4rem 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-text h1 {
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1;
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text h1 span {
+    color: var(--gold);
+}
+
+.quote {
+    border-left: 2px solid var(--gold);
+    padding-left: 1rem;
+    color: var(--gold-light);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.description {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.biodata {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    border-top: 1px solid rgba(205, 162, 109, 0.3);
+    padding-top: 1.5rem;
+}
+
+.bio-title {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+}
+
+.bio-value {
+    font-size: 0.9rem;
+}
+
+/* card and grid */
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--bg-navy);
+    color: var(--text-light);
+    padding: 2rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 0.8rem;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.trait-item h3 {
+    font-size: 1.4rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+    color: var(--gold-light);
+}
+
+.trait-item p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* footer and button */
+.closing {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: var(--bg-dark);
+}
+
+.closing h2 {
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: normal;
+    margin: 1.5rem 0 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--gold);
+    color: var(--bg-dark);
+}

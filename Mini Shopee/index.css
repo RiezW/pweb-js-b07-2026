@@ -1,0 +1,486 @@
+/* base style */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1e24;
+    font-family: 'Georgia', serif;
+    color: #2b2b2b;
+    line-height: 1.6;
+}
+
+/* Main profilllll */
+
+#main-profile {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    overflow: hidden;
+}
+
+.vertical-title {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    color: #e0d8d0;
+    font-family: sans-serif;
+    z-index: 10;
+}
+
+.chara-card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: transparent;
+}
+
+.chara-content {
+    flex: none;
+    width: 33vw;
+    max-width: 33vw;
+    padding: 3.5rem 2.5rem 3.5rem 5.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #e0d8d0;
+    background-color: rgba(26, 30, 36, 0.7);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+}
+
+.subheading {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #cda26d;
+    margin-bottom: 0.5rem;
+    font-family: sans-serif;
+}
+
+.chara-content h1 {
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    line-height: 1.15;
+}
+
+.chara-content .quote {
+    font-style: italic;
+    color: #cda26d;
+    margin-bottom: 1.25rem;
+    border-left: 2px solid #cda26d;
+    padding-left: 1rem;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.chara-content .quote:hover {
+    color: #ffffff;
+}
+
+.chara-content .description {
+    font-size: 0.9rem;
+    color: #d0c8c0;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.violet-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.violet-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% center;
+    display: block;
+}
+
+.violet-image img:hover {
+    opacity: 0.95;
+}
+
+/* ===== SECTION KARYA ===== */
+.section-karya {
+    margin-top: 60px;
+    padding: 60px 9% 40px;
+    border-top: 1px solid rgba(224, 216, 208, 0.15);
+}
+
+.section-karya h2,
+.section-aspirasi h2 {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: normal;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-left: 16px;
+}
+
+.section-karya h2::before,
+.section-aspirasi h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 3px;
+    background-color: #cda26d;
+}
+
+.section-karya p {
+    color: #d0c8c0;
+    margin-bottom: 24px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.kartu {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: rgba(26, 30, 36, 0.7);
+    border: 1px solid rgba(205, 162, 109, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.3s ease;
+}
+
+.kartu:hover {
+    border-color: rgba(205, 162, 109, 0.7);
+}
+
+.kartu img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.kartu .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    background-color: rgba(26, 30, 36, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.kartu:hover .layer {
+    opacity: 1;
+}
+
+.kartu .info {
+    padding: 16px;
+}
+
+.kartu .info h4 {
+    font-size: 16px;
+    margin: 0 0 8px 0;
+    color: #ffffff;
+}
+
+.kartu .info p {
+    font-size: 14px;
+    color: #d0c8c0;
+    margin-bottom: 12px;
+}
+
+.info .btn-view {
+    display: inline-block;
+    background-color: #cda26d;
+    color: #1a1e24;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.2s ease;
+}
+
+.info .btn-view:hover {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #cda26d;
+}
+
+.btn-rekam-jejak {
+    display: inline-block;
+    background-color: #cda26d;
+    color: #1a1e24;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 8px;
+    transition: color 0.3s ease, background-color 0.2s ease;
+}
+
+.btn-rekam-jejak:hover {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #cda26d;
+}
+
+/* ===== MODAL POPUP ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal:target {
+    display: flex;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 30, 36, 0.85);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #1a1e24;
+    border: 1px solid rgba(224, 216, 208, 0.15);
+    border-radius: 10px;
+    padding: 32px;
+    max-width: 500px;
+    width: 90%;
+    z-index: 1001;
+    color: #e0d8d0;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.modal-content h4 {
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.modal-content p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #d0c8c0;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    color: #e0d8d0;
+    font-size: 24px;
+    text-decoration: none;
+    line-height: 1;
+    z-index: 1002;
+}
+
+.modal-close:hover {
+    color: #cda26d;
+}
+
+/* ===== SECTION ASPIRASI / FORM ===== */
+.section-aspirasi {
+    margin-top: 60px;
+    padding: 40px 9% 60px;
+    border-top: 1px solid rgba(224, 216, 208, 0.15);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.section-aspirasi h2,
+.section-aspirasi > p {
+    flex-basis: 100%;
+}
+
+.section-aspirasi > p {
+    color: #d0c8c0;
+    margin-bottom: 8px;
+}
+
+.kontak {
+    flex: 1;
+    min-width: 250px;
+}
+
+.kontak h3 {
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+
+.kontak i {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 16px;
+    color: #d0c8c0;
+    font-style: normal;
+}
+
+.kontak i a {
+    color: #cda26d;
+}
+
+.kontak i a:hover {
+    color: #ffffff;
+}
+
+.form {
+    flex: 2;
+    min-width: 300px;
+}
+
+.form form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.form input,
+.form textarea {
+    padding: 12px;
+    border: 1px solid rgba(224, 216, 208, 0.3);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 15px;
+    width: 100%;
+    background-color: rgba(26, 30, 36, 0.7);
+    color: #e0d8d0;
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+    color: #7a7570;
+}
+
+.form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form input:focus,
+.form textarea:focus {
+    outline: none;
+    border-color: #cda26d;
+    box-shadow: 0 0 0 3px rgba(205, 162, 109, 0.15);
+}
+
+.form input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.form button {
+    align-self: flex-start;
+    background-color: #cda26d;
+    color: #1a1e24;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.2s ease;
+}
+
+.form button:hover {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #cda26d;
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #main-profile {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .vertical-title {
+        display: none;
+    }
+
+    .chara-card {
+        flex-direction: column-reverse;
+    }
+
+    .violet-image {
+        position: relative;
+        height: 40vh;
+        width: 100%;
+    }
+
+    .chara-content {
+        width: 100vw;
+        max-width: 100vw;
+        padding: 2.5rem 1.5rem;
+        background-color: rgba(26, 30, 36, 0.85);
+    }
+
+    .chara-content h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .section-aspirasi {
+        flex-direction: column;
+    }
+
+    .modal-content {
+        padding: 24px;
+        width: 95%;
+    }
+}
