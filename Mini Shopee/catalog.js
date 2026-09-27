@@ -3,7 +3,7 @@
 
     const AUTH_KEY = "loggedInUser";
     const LEGACY_AUTH_KEY = "userFirstName";
-    const LOGIN_PAGE = "login2.html";
+    const LOGIN_PAGE = "login.html";
     const NEW_TAB_KEY = "new";
     const SEARCH_DEBOUNCE_MS = 300;
     const PRODUCTS_URL = "https://dummyjson.com/products?limit=100";
