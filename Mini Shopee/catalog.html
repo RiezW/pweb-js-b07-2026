@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk | Violet Store</title>
+
+    <link rel="stylesheet" href="catalog.css">
+</head>
+<body>
+
+    <div id="globalError" class="global-error" hidden>
+        <span id="globalErrorText">Terjadi kesalahan.</span>
+        <button id="globalErrorClose" type="button" aria-label="Tutup">&times;</button>
+    </div>
+
+    <nav class="shop-nav" id="shopNav">
+        <div class="nav-left">
+            <a href="catalog.html" class="active">Catalogue</a>
+            <a href="#about">About</a>
+            <a href="#kontak">Contact</a>
+        </div>
+        <div class="nav-brand">VIOLET&nbsp;STORE</div>
+
+        <div class="nav-right">
+            <div class="nav-search" id="navSearch">
+                <button type="button" class="icon-link" id="searchToggle" aria-haspopup="true" aria-expanded="false">Search</button>
+                <input
+                    type="search"
+                    id="navSearchInput"
+                    class="nav-search-input"
+                    placeholder="Cari produk, kategori..."
+                    autocomplete="off"
+                    hidden
+                >
+            </div>
+
+            <div class="nav-account" id="navAccount">
+                <button type="button" class="nav-account-btn" id="navAccountBtn" aria-haspopup="true" aria-expanded="false">
+                    <span class="nav-greeting" id="navGreeting"></span>
+                    <span class="nav-account-caret" aria-hidden="true">&#9662;</span>
+                </button>
+                <div class="nav-account-menu" id="navAccountMenu" hidden>
+                    <button type="button" class="nav-account-menu-item" id="logoutBtn">Logout</button>
+                </div>
+            </div>
+
+            <a href="#" class="icon-link">Cart (0)</a>
+        </div>
+    </nav>
+
+    <header class="catalog-head">
+        <p class="breadcrumb"><a href="#">Home</a> / <span>Catalogue</span></p>
+        <h1>ALL</h1>
+    </header>
+
+    <div class="tabs-wrap" id="tabsWrap">
+        <div class="category-tabs" id="categoryTabs">
+            <button type="button" class="tab-item active" data-tab="all">All</button>
+            <button type="button" class="tab-item" data-tab="face-care">Face Care</button>
+            <button type="button" class="tab-item" data-tab="body-care">Body Care</button>
+            <button type="button" class="tab-item" data-tab="hair-care">Hair Care</button>
+            <button type="button" class="tab-item" data-tab="candles">Candles</button>
+            <button type="button" class="tab-item" data-tab="accessories">Accessories</button>
+            <button type="button" class="tab-item tab-new" data-tab="new">New</button>
+        </div>
+
+        <div class="mega-menu" id="megaMenu" hidden>
+            <div class="mega-columns" id="megaColumns"></div>
+        </div>
+    </div>
+
+    <div class="mega-overlay" id="megaOverlay" hidden></div>
+
+    <section class="product-section light-theme">
+        <div id="productGrid" class="product-grid">
+            <p class="placeholder-note">Produk akan ditampilkan di sini.</p>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-inner">
+            <h2>About CH Store</h2>
+            <p>
+            Violet hadir sebagai pilihan untuk memenuhi kebutuhan perawatan
+            dan self-care sehari-hari dengan menghadirkan produk yang praktis,
+            berkualitas, dan sesuai dengan kebutuhan setiap individu.
+            <br>
+                <em>Made For Your Everyday Care</em>
+            </p>
+        </div>
+    </section>
+
+    <footer class="closing" id="kontak">
+        <div class="footer-inner">
+            <p class="footer-brand">VIOLET STORE</p>
+            <p class="footer-text">Jl. Emerald Green No. 123, Surabaya</p>
+            <p class="footer-text">violetstore@gmail.com &middot; +62 812-3456-7890</p>
+        </div>
+    </footer>
+
+    <script src="catalog.js" defer></script>
+</body>
+</html>
