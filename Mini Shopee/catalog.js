@@ -2,7 +2,8 @@
     "use strict";
 
     const AUTH_KEY = "loggedInUser";
-    const LOGIN_PAGE = "login.html";
+    const LEGACY_AUTH_KEY = "userFirstName";
+    const LOGIN_PAGE = "login2.html";
     const NEW_TAB_KEY = "new";
     const SEARCH_DEBOUNCE_MS = 300;
 
@@ -19,6 +20,12 @@
         let user = null;
         try {
             user = localStorage.getItem(AUTH_KEY);
+            if (!user) {
+                user = localStorage.getItem(LEGACY_AUTH_KEY);
+                if (user) {
+                    localStorage.setItem(AUTH_KEY, user);
+                }
+            }
         } catch (e) {
             console.error("[AuthGuard/catalog.js] localStorage tidak bisa diakses:", e);
             user = null;
@@ -101,6 +108,7 @@
             logoutBtn.addEventListener("click", function () {
                 try {
                     localStorage.removeItem(AUTH_KEY);
+                    localStorage.removeItem(LEGACY_AUTH_KEY);
                 } catch (e) {}
                 window.location.href = LOGIN_PAGE;
             });

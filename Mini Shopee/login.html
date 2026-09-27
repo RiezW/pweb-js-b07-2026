@@ -1,135 +1,65 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login (Sementara) | CH Store</title>
-    <style>
-        /* Cuma styling seadanya biar kepakai, bukan desain final.
-           Nanti tinggal hapus/timpa pakai punya temanmu. */
-        body {
-            font-family: Arial, sans-serif;
-            background: #1a1e24;
-            color: #e8e1d8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-        .login-box {
-            background: #112743;
-            padding: 2.5rem;
-            border-radius: 8px;
-            width: 100%;
-            max-width: 320px;
-        }
-        .login-box h1 {
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .login-box label {
-            display: block;
-            font-size: 0.8rem;
-            margin-bottom: 0.4rem;
-            color: #bdb5ad;
-        }
-        .login-box input {
-            width: 100%;
-            padding: 0.6rem 0.8rem;
-            margin-bottom: 1.2rem;
-            border-radius: 4px;
-            border: 1px solid #444;
-            background: #1a1e24;
-            color: #fff;
-            font-size: 0.9rem;
-            box-sizing: border-box;
-        }
-        .login-box button {
-            width: 100%;
-            padding: 0.7rem;
-            background: #cda26d;
-            color: #1a1e24;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            cursor: pointer;
-        }
-        .login-box button:hover { background: #e1bd8b; }
-        .note {
-            font-size: 0.7rem;
-            color: #bdb5ad;
-            text-align: center;
-            margin-top: 1rem;
-        }
-        .error-msg {
-            color: #d67769;
-            font-size: 0.75rem;
-            margin: -0.6rem 0 1rem;
-            display: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Mini Shopee</title>
+  <link rel="stylesheet" href="login2.css">
+  <!-- External JavaScript dengan defer -->
+  <script src="login2.js" defer></script>
 </head>
 <body>
-
-    <div class="login-box">
-        <h1>Login</h1>
-        <form id="loginForm">
-            <label for="username">Nama</label>
-            <input type="text" id="username" name="username" placeholder="Masukkan nama kamu" autocomplete="username" required>
-            <p class="error-msg" id="errorMsg">Nama tidak boleh kosong.</p>
-            <button type="submit">Masuk</button>
-        </form>
-        <p class="note">Halaman login sementara (stub) — hanya untuk testing auth guard di catalog.html.</p>
+  <div class="login-container">
+    <div class="login-header">
+      <h2>Selamat Datang</h2>
+      <p>Silakan masuk ke akun Anda</p>
     </div>
 
-    <script>
-        (function () {
-            "use strict";
+    <!-- Container Pesan Error / Notifikasi -->
+    <div id="error-message" class="error-banner hidden" role="alert"></div>
 
-            const AUTH_KEY = "loggedInUser";
-            const CATALOG_PAGE = "catalog.html";
+    <form id="login-form" novalidate>
+      <div class="form-group">
+        <label for="username">Username</label>
 
-            const form = document.getElementById("loginForm");
-            const usernameInput = document.getElementById("username");
-            const errorMsg = document.getElementById("errorMsg");
+        <div class="input-wrapper">
+          <input 
+            type="text" 
+            id="username" 
+            name="username" 
+            placeholder="Masukkan username (contoh: emilys)" 
+            required 
+            autocomplete="username"
+          >
+        </div>
+      </div>
 
-            // Kalau sudah "login" sebelumnya, langsung lempar ke catalog
-            // (misalnya user balik lagi ke login.html padahal masih ada sesi).
-            try {
-                if (localStorage.getItem(AUTH_KEY)) {
-                    window.location.replace(CATALOG_PAGE);
-                }
-            } catch (e) {
-                /* localStorage tidak tersedia, biarkan lanjut ke form */
-            }
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-wrapper">
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            placeholder="Masukkan password" 
+            required 
+            autocomplete="current-password"
+          >
+          <!-- Bonus Feature: Toggle Show/Hide Password -->
+          <button type="button" id="toggle-password" class="toggle-pwd-btn" aria-label="Tampilkan Password">
+            👁️
+          </button>
+        </div>
+      </div>
 
-            form.addEventListener("submit", function (e) {
-                e.preventDefault();
+      <button type="submit" id="btn-submit" class="btn-login">
+        <span class="btn-text">Masuk</span>
+        <!-- Loading Spinner -->
+        <span class="spinner hidden" id="loading-spinner"></span>
+      </button>
+    </form>
 
-                const name = usernameInput.value.trim();
-                if (!name) {
-                    errorMsg.style.display = "block";
-                    return;
-                }
-                errorMsg.style.display = "none";
 
-                try {
-                    localStorage.setItem(AUTH_KEY, name);
-                } catch (err) {
-                    alert("Gagal menyimpan sesi login (localStorage tidak tersedia).");
-                    return;
-                }
-
-                window.location.href = CATALOG_PAGE;
-            });
-        })();
-    </script>
+  </div>
 </body>
 </html>
