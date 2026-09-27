@@ -45,7 +45,9 @@
                 </div>
             </div>
 
-            <a href="#" class="icon-link">Cart (0)</a>
+            <button type="button" class="icon-link" id="cartBtn">
+                Cart (<span id="cartCount">0</span>) - <span id="cartTotal">$0.00</span>
+            </button>
         </div>
     </nav>
 
@@ -73,9 +75,28 @@
     <div class="mega-overlay" id="megaOverlay" hidden></div>
 
     <section class="product-section light-theme">
+        <div class="catalog-tools" aria-label="Filter dan pengurutan produk">
+            <label>
+                Kategori
+                <select id="categoryFilter">
+                    <option value="all">Semua kategori</option>
+                </select>
+            </label>
+            <label>
+                Urutkan
+                <select id="sortSelect">
+                    <option value="featured">Unggulan</option>
+                    <option value="price-asc">Harga terendah</option>
+                    <option value="price-desc">Harga tertinggi</option>
+                    <option value="rating-desc">Rating tertinggi</option>
+                </select>
+            </label>
+        </div>
         <div id="productGrid" class="product-grid">
             <p class="placeholder-note">Produk akan ditampilkan di sini.</p>
         </div>
+        <p id="productStatus" class="product-status" role="status" hidden></p>
+        <button type="button" id="loadMoreBtn" class="load-more-btn" hidden>Load More</button>
     </section>
 
     <section class="about-section" id="about">
@@ -98,6 +119,27 @@
             <p class="footer-text">violetstore@gmail.com &middot; +62 812-3456-7890</p>
         </div>
     </footer>
+
+    <div id="modal" class="modal-bg" hidden>
+        <div class="modal-box">
+            <button type="button" id="modalClose" class="modal-close" aria-label="Tutup detail produk">&times;</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <div id="cartModal" class="modal-bg" hidden>
+        <div class="modal-box cart-box">
+            <button type="button" id="cartClose" class="modal-close" aria-label="Tutup keranjang">&times;</button>
+            <h2>Keranjang Belanja</h2>
+            <div id="cartItems" class="cart-items"></div>
+            <p id="cartEmpty" class="cart-empty" hidden>Keranjang masih kosong.</p>
+            <div class="cart-summary">
+                <strong>Total</strong>
+                <strong id="cartModalTotal">$0.00</strong>
+            </div>
+            <button type="button" id="clearCartBtn" class="btn-clear-cart">Kosongkan Keranjang</button>
+        </div>
+    </div>
 
     <script src="catalog.js" defer></script>
 </body>
